@@ -3,6 +3,18 @@
     This is where the graph will go
   </div>
   <div class="col-md-4">
-    This is where the input and tracked items will go
+    <div>
+      {{#each activeTracker}}
+        {{> tracker}}
+      {{/each}}
+    </div>
+    <div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="newTrackerName" placeholder="New Tracker">
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-default btn-success" id="newTracker">Add Tracker</button>
+      </div>
+    </div>
   </div>
 </template>

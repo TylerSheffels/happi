@@ -1,2 +1,2 @@
-Meteor.subscribe('tracker');
+Meteor.subscribe('trackers');
 Meteor.subscribe('errors');

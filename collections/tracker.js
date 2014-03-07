@@ -1,1 +1,1 @@
-Tracker = new Meteor.Collection("tracker");
+Trackers = new Meteor.Collection("tracker");
