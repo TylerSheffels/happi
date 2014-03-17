@@ -2,10 +2,10 @@ Template.tracker.events({
   'click #upVote' : function(e) {
     e.preventDefault();
 
-    console.log(this._id);
     var attributes = {
       trackerID: this._id,
-      vote: 1
+      vote: 1,
+      date: Date()
     }
 
     Meteor.call('addData', attributes,
