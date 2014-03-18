@@ -1,5 +1,9 @@
 addTracker = function(trackerAttributes) {
-  return Trackers.insert( {trackerName: trackerAttributes.trackerName, history: []} );
+  return Trackers.insert( {
+    trackerName: trackerAttributes.trackerName
+    , history: []
+    , userID: trackerAttributes.userID
+  });
 };
 addDataToTracker = function(attributes) {
   var date = attributes.date

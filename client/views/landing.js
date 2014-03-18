@@ -12,7 +12,7 @@ Template.landing.events({
       function(e, a) {
         if(e) {
           throwError(e.reason);
-          Router.go('landing');
+          Router.go('test');
         }
       })
   }
