@@ -3,8 +3,8 @@ Template.tracker.events({
     e.preventDefault();
 
     var attributes = {
-      userID: Meteor.userId(),
-      trackerID: this._id,
+      userId: Meteor.userId(),
+      trackerId: this._id,
       vote: 1,
       date: Date()
     }

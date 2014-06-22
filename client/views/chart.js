@@ -12,7 +12,8 @@ Template.chart.rendered = function () {
 
     chart.xAxis     //Chart x-axis settings
         .axisLabel('Date')
-        //.tickFormat(d3.time.format('%x'));
+        .ticks(d3.time.days, 1)
+        .tickFormat(d3.time.format('%d'))
 
     chart.yAxis     //Chart y-axis settings
         .axisLabel('Voltage (v)')
@@ -48,6 +49,5 @@ Template.chart.rendered = function () {
     })
 
     return returnArray
-}
-
+  }
 }
