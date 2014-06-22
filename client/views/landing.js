@@ -21,3 +21,7 @@ Template.landing.events({
 Template.landing.activeTracker = function() {
   return Trackers.find()
 }
+
+Template.landing.currentDate = function() {
+  return Session.get('currentDate') || moment()
+}
