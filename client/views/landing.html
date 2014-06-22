@@ -1,20 +1,31 @@
 <template name="landing">
-  <div class="col-md-8">
+  <div class="row">
     {{> chart}}
   </div>
-  <div class="col-md-4">
-    <div>
-      {{#each activeTracker}}
-        {{> tracker}}
-      {{/each}}
-    </div>
-    <div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" id="newTrackerName" placeholder="New Tracker">
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-default btn-success" id="newTracker">Add Tracker</button>
-      </div>
+  <div class="col-sm-8 col-md-6">
+    <h4>Add data to an existing topic</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center">Worse</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Better</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each activeTracker}}
+          {{> tracker}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-4 pull-right">
+    <h4>Add a new topic to track</h4>
+    <div class="input-group form-search">
+      <input type="text" class="form-control search-query" id="newTrackerName" placeholder="Add New Topic">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-success" id="newTracker" data-type="last">Add</button>
+      </span>
     </div>
   </div>
 </template>

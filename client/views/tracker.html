@@ -1,7 +1,13 @@
 <template name="tracker">
-  <div class="row">
-    {{trackerName}}
-    <button type="submit" class="btn btn-default btn-success" id="upVote">Better</button>
-    <button type="submit" class="btn btn-default btn-danger" id="downVote">Worse</button>
-  </div>
+  <tr>
+    <td class="col-sm-3">
+      <button type="submit" class="btn btn-danger btn-block" id="downVote">-1</button>
+    </td>
+    <td class="col-sm-6 text-center">
+      {{trackerName}}
+    </td>
+    <td class="col-sm-3">
+      <button type="submit" class="btn btn-success btn-block" id="upVote">+1</button>
+    </td>
+  </tr>
 </template>

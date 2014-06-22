@@ -2,7 +2,7 @@ Template.chart.rendered = function () {
   /*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
   nv.addGraph(function() {
     var chart = nv.models.lineChart()
-                  .margin({left: 100})  //Adjust chart margins to give the x-axis some breathing room.
+                  .margin({left: 75})  //Adjust chart margins to give the x-axis some breathing room.
                   .useInteractiveGuideline(true)  //We want nice looking tooltips and a guideline!
                   .transitionDuration(350)  //how fast do you want the lines to transition?
                   .showLegend(true)       //Show the legend, allowing users to turn on/off line series.
@@ -11,20 +11,21 @@ Template.chart.rendered = function () {
     ;
 
     chart.xAxis     //Chart x-axis settings
-        .axisLabel('Date')
-        .ticks(d3.time.days, 1)
-        .tickFormat(d3.time.format('%d'))
+      .axisLabel('Date')
+      .ticks(d3.time.days, 1)
+      .tickFormat(function(d) { return d3.time.format('%b %d')(new Date(d)); })
 
     chart.yAxis     //Chart y-axis settings
-        .axisLabel('Voltage (v)')
-        .tickFormat(d3.format('.02f'));
+      .axisLabel('History')
+      .tickFormat(d3.format('.f'))
+      .ticks(6);
 
     /* Done setting the chart up? Time to render it!*/
     var myData = getData();   //You need data...
 
     d3.select('#line-chart svg')    //Select the <svg> element you want to render the chart in.   
-        .datum(myData)         //Populate the <svg> element with chart data...
-        .call(chart);          //Finally, render the chart!
+      .datum(myData)         //Populate the <svg> element with chart data...
+      .call(chart);          //Finally, render the chart!
 
     //Update the chart when window resizes.
     nv.utils.windowResize(function() { chart.update() });
