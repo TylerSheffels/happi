@@ -5,7 +5,8 @@ Template.landing.events({
     var trackerName = $("#newTrackerName").val();
 
     var trackerAttributes = {
-      trackerName: trackerName
+      trackerName: trackerName,
+      userId: Meteor.userId()
     }
 
     Meteor.call('createTracker', trackerAttributes,
