@@ -22,7 +22,7 @@ Template.landing.events({
 
     var newDateUnscrubbed = $("#dateSelector").val();
 
-    var newDate = moment(newDateUnscrubbed).format("MMM DD, YYYY");
+    var newDate = moment(newDateUnscrubbed).format("MMM DD, YYYY")
 
     Session.set('currentDate', newDate);
   }
@@ -34,5 +34,5 @@ Template.landing.activeTracker = function() {
 
 Template.landing.currentDate = function() {
   //Grabs the current date if the session variable doesnt exist yet
-  return Session.get('currentDate') || moment().format("MMM DD, YYYY")
+  return moment(Session.get('currentDate')).format("MMM DD, YYYY")
 }

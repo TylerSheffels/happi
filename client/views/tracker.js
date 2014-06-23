@@ -2,13 +2,13 @@ Template.tracker.events({
   'click #upVote' : function(e) {
     e.preventDefault();
 
-    currentDate = Session.get('currentDate') || moment().format("MMM DD, YYYY")
+    currentDate = moment(Session.get('currentDate'))
 
     var attributes = {
       userId: Meteor.userId(),
       trackerId: this._id,
       vote: 1,
-      date: currentDate
+      date: currentDate._d
     }
 
     Meteor.call('addData', attributes,

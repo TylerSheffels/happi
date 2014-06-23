@@ -27,6 +27,13 @@ Template.chart.rendered = function () {
 
     //Update the chart when window resizes.
     nv.utils.windowResize(function() { chart.update() });
+
+    Trackers.find().observeChanges({
+      changed: function(id, doc) {
+        myData = getData();
+        renderChart(chart, myData);
+      }
+    })
     return chart;
   });
 }
