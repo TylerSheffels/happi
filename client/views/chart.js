@@ -30,6 +30,7 @@ Template.chart.rendered = function () {
 
     Trackers.find().observeChanges({
       changed: function(id, doc) {
+
         myData = getData();
         renderChart(chart, myData);
       }

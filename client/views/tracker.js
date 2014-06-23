@@ -2,21 +2,32 @@ Template.tracker.events({
   'click #upVote' : function(e) {
     e.preventDefault();
 
-    currentDate = moment(Session.get('currentDate'))
+    addDataToTracker(1, this._id)
+  },
 
-    var attributes = {
-      userId: Meteor.userId(),
-      trackerId: this._id,
-      vote: 1,
-      date: currentDate._d
-    }
+  'click #downVote' : function(e) {
+    e.preventDefault();
 
-    Meteor.call('addData', attributes,
-      function(e, a) {
-        if(e) {
-          throwError(e.reason);
-          Router.go('landing');
-        }
-      })
-  }
+    addDataToTracker(-1, this._id)
+  },
 })
+
+var addDataToTracker = function (vote, _id) {
+  currentDate = moment(Session.get('currentDate'))
+
+  var attributes = {
+    userId: Meteor.userId(),
+    trackerId: _id,
+    vote: vote,
+    date: currentDate._d
+  }
+
+  Meteor.call('addData', attributes,
+    function(e, a) {
+      if(e) {
+        throwError(e.reason);
+        Router.go('landing');
+      }
+    }
+  )
+}
