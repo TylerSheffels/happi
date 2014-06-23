@@ -15,7 +15,7 @@ addDataToTracker = function(attributes) {
 
   //Remove an old entry for this date
   newHistory = _.reject(prevHistory, function(item) {
-    return item[0] === date;
+    return item[0].getTime() === date.getTime();
   })
 
   //Insert the new value
