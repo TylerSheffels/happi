@@ -13,6 +13,9 @@
       },
       "accounts-ui-bootstrap-dropdown": {
         "version": "0.8.3"
+      },
+      "moment": {
+        "version": "2.6.0"
       }
     },
     "packages": {
@@ -35,6 +38,11 @@
         "git": "https://github.com/erobit/meteor-accounts-ui-bootstrap-dropdown.git",
         "tag": "v0.8.3",
         "commit": "a7af8a52e4e74db020a69b158a8f992797b8b0b0"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

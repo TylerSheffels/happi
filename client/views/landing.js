@@ -14,7 +14,17 @@ Template.landing.events({
           throwError(e.reason);
           Router.go('test');
         }
-      })
+    })
+  },
+
+  'click #addDate' : function(e) {
+    e.preventDefault();
+
+    var newDateUnscrubbed = $("#dateSelector").val();
+
+    var newDate = moment(newDateUnscrubbed).format("MMM DD, YYYY");
+
+    Session.set('currentDate', newDate);
   }
 })
 
@@ -23,5 +33,6 @@ Template.landing.activeTracker = function() {
 }
 
 Template.landing.currentDate = function() {
-  return Session.get('currentDate') || moment()
+  //Grabs the current date if the session variable doesnt exist yet
+  return Session.get('currentDate') || moment().format("MMM DD, YYYY")
 }

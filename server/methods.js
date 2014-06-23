@@ -6,6 +6,5 @@ Meteor.methods({
   addData: function(attributes) {
     //check for anything other than 1, -1. How to get dates?
     trackerId = addDataToTracker(attributes);
-    console.log(Trackers.find().fetch())
   }
 })
