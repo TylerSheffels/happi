@@ -23,32 +23,36 @@ Template.chart.rendered = function () {
     /* Done setting the chart up? Time to render it!*/
     var myData = getData();   //You need data...
 
-    d3.select('#line-chart svg')    //Select the <svg> element you want to render the chart in.   
-      .datum(myData)         //Populate the <svg> element with chart data...
-      .call(chart);          //Finally, render the chart!
+    renderChart(chart, myData);
 
     //Update the chart when window resizes.
     nv.utils.windowResize(function() { chart.update() });
     return chart;
   });
+}
 
-  function getData() {
-    var returnArray = []
+var getData = function () {
+  var returnArray = []
 
-    Trackers.find().forEach( function (tracker) {
-      dataArray = []
-      previousDay = 0
-      historyArray = tracker.history;
-      for (var i = 0; i < historyArray.length; i++) {
-        previousDay = historyArray[i][1] + previousDay
-        dataArray.push({x: historyArray[i][0], y: previousDay})
-      }
-      returnArray.push({
-        values: dataArray,
-        key: tracker.trackerName
-      })
+  Trackers.find().forEach( function (tracker) {
+    dataArray = []
+    previousDay = 0
+    historyArray = tracker.history;
+    for (var i = 0; i < historyArray.length; i++) {
+      previousDay = historyArray[i][1] + previousDay
+      dataArray.push({x: historyArray[i][0], y: previousDay})
+    }
+    returnArray.push({
+      values: dataArray,
+      key: tracker.trackerName
     })
+  })
 
-    return returnArray
-  }
+  return returnArray
+}
+
+var renderChart = function (chart, data) {
+  d3.select('#line-chart svg')    //Select the <svg> element you want to render the chart in.   
+    .datum(data)         //Populate the <svg> element with chart data...
+    .call(chart);          //Finally, render the chart!
 }
