@@ -5,6 +5,7 @@
     "accounts-ui-bootstrap-3": {},
     "accounts-ui-bootstrap-dropdown": {},
     "moment": {},
-    "event-hooks": {}
+    "event-hooks": {},
+    "bootflat": {}
   }
 }
