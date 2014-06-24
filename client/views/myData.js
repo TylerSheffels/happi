@@ -26,8 +26,25 @@ Template.myData.events({
     var newDate = moment(newDateUnscrubbed).format("MMM DD, YYYY")
 
     Session.set('currentDate', newDate);
-  }
+  },
+
+  'click #dateForward' : function(e) {
+    e.preventDefault();
+    moveDate(1);
+  },
+  
+  'click #dateBackward' : function(e) {
+    e.preventDefault();
+    moveDate(-1);
+  },
+
 })
+
+var moveDate = function(days) {
+  var oldDate = Session.get('currentDate');
+
+  Session.set('currentDate', moment(oldDate).add('d', days).format("MMM DD, YYYY"))
+}
 
 Template.myData.activeTracker = function() {
   return Trackers.find()
