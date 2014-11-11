@@ -1,0 +1,23 @@
+<template name="setup">
+  <br>
+  <div class="well">
+  {{ #each currentTrend }}
+    {{> trend }}
+  {{ /each }}
+  </div>
+  <div class="well">
+    <form class="main form">
+      <div class="form-group">
+        <label>New Trendline</label>
+        <input name="newTrendName" type="text" class="form-control" id="newTrendName" placeholder="Trend Name">
+      </div> 
+      <input type="submit" value="Submit" class="btn btn-primary"/>
+    </form>
+  </div>
+</template>
+
+<template name="trend">
+  <div class="row">
+    {{trendName}}
+  </div>
+</template>

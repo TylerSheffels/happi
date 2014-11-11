@@ -1,0 +1,1 @@
+Trends = new Mongo.Collection("trend");
