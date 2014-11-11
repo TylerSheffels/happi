@@ -20,11 +20,13 @@
         <a class="navbar-brand" href="{{pathFor 'landing'}}">Happi</a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
+      {{#if currentUser}}
         <ul class="nav navbar-nav">
           <li><a href="{{pathFor 'entry'}}">Data Entry</a></li>
           <li><a href="{{pathFor 'report'}}">Reports</a></li>
           <li><a href="{{pathFor 'setup'}}">Setup</a></li>
         </ul>
+      {{/if}}
         <ul class="nav navbar-nav navbar-right">
           {{> loginButtons}}
         </ul>

@@ -8,7 +8,6 @@ Template.setup.events({
   'submit form': function(e) {
     e.preventDefault();
 
-console.log('triggered')
     var trendName = $(e.target).find('[name=newTrendName]').val()
     var trendAttributes = {
       trendName: trendName,
