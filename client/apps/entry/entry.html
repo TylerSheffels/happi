@@ -1,5 +1,23 @@
 <template name="entry">
-  <div class="text-center">
-    <p>Data Entry</p>
+  <div class="visible-xs visible-sm visible-lg">
+    {{ #each currentTrend }}
+      <div class="well">
+        <p>Trend: {{ trendName }}</p>
+        <div class="btn-group btn-group-justified" role="group">
+          <a type="button" class="btn btn-danger btn-tall">Worse</a>
+          <a type="button" class="btn btn-success btn-tall">Better</a>
+        </div>
+      </div>
+    {{ /each }}
+  </div>
+  <div class="visible-md">
+  {{ #each currentTrend }}
+    <div class="well">
+      <p>Trend: {{ trendName }}</p>
+      <div class="btn-group" role="group" style="width: 100%">
+      </div>
+    </div>
+  {{ /each }}
+  <p>Data Entry on Computers</p>
   </div>
 </template>
